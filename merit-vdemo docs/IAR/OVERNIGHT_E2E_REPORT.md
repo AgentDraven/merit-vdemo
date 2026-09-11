@@ -13,7 +13,7 @@ V01 repositories are owned by `AgentDraven`. The old checkout for this repo poin
 | Area | Evidence | Result |
 |---|---|---|
 | Consumer contract | `npm test` | 10/10 passed |
-| Hosted E2E probe | `npm run e2e` | Gateway, subscriber, store, utility homepage, and registry all ready |
+| Hosted E2E probe | `npm run e2e` | `ready=true`, no blockers; gateway/subscriber/store/utilities ready; store health reported 37 total offerings and the tenant catalog contains 20 open `merit-vdemo` offerings |
 | Hosted API matrix | `npm run e2e:hosted` | 15/15 endpoint and auth-boundary checks passed; JSON evidence is in `merit-vdemo docs/IAR/evidence/hosted-api-matrix.json` |
 | VDemo browser E2E | `npm run e2e:playwright` | Local portal/play/journal/AMA/admin/diagnostics/legal route sweep, desktop/mobile screenshots, workbench, plans, fork guide, gateway connection, and guest join checks passed |
 | Authenticated tenant matrix | `npm run e2e:authenticated` | 7/7 tenant collections passed GET → POST → GET → DELETE using a disposable subscriber and server-only gateway key; redacted evidence is in `merit-vdemo docs/IAR/evidence/authenticated-tenant-matrix.json` |
@@ -21,7 +21,7 @@ V01 repositories are owned by `AgentDraven`. The old checkout for this repo poin
 | Provider matrix | `npm run probe:v01` | `ready=true`, no blockers |
 | Gateway | `https://merit-prodv01.vercel.app/api/health` | HTTP 200 |
 | Subscriber provider | `https://merit-subsv01.vercel.app/api/v1/health` | HTTP 200 |
-| Store provider | `https://merit-storev01.vercel.app/api/v1/health` | HTTP 200; 20 offerings |
+| Store provider | `https://merit-storev01.vercel.app/api/v1/health` | HTTP 200; 37 total offerings, with 20 open offerings for `merit-vdemo` |
 | Utility registry | `https://merit-utilsv01.vercel.app/registry.json` | HTTP 200; meter and referral packages present |
 | Consumer UI | local HTTP page | Full navigation, hello-world join interaction, workbench, plans, capabilities, and fork guide rendered |
 | Lifecycle | hosted subscriber fixture | Downgrade and cancellation HTTP 200; entitlement state changed correctly |

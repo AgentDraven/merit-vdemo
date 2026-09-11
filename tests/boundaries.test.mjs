@@ -20,7 +20,7 @@ test('invalid app identities cannot become URLs or markup', () => {
 });
 test('healthy v00 response cannot satisfy v01 connection check', () => {
   assert.equal(verifyHealth({ ok: true, canonical_base_url: 'https://merit-prod.vercel.app' }), false);
-  assert.equal(verifyHealth({ ok: true, canonical_base_url: 'https://merit-prodv01.vercel.app', backing_services: { meritstore: 'https://merit-storev01.vercel.app', meritutilsPackages: 'https://merit-utilsv01.vercel.app' } }), true);
+  assert.equal(verifyHealth({ ok: true, canonical_base_url: 'https://merit-prodv01.vercel.app', backing_services: { meritsubs: 'https://merit-subsv01.vercel.app/api/v1', meritutilsPackages: 'https://merit-utilsv01.vercel.app' } }), true);
 });
 test('modified package bytes and cross-plane asset URLs fail closed', () => {
   const bytes = Buffer.from('verified fixture');
@@ -79,7 +79,8 @@ test('capability manifest is explicit, v01-only, and does not overclaim alpha fe
     assert.equal(item.route.includes('soulos.vercel.app'), false, `${name} must not use legacy provider`);
     assert.equal(item.route.includes('somatune.vercel.app'), false, `${name} must not use legacy provider`);
   }
-  assert.match(capabilities.capabilities.metering.blocker, /unauthenticated/);
+assert.equal(capabilities.capabilities.metering.status, 'implemented');
+assert.match(capabilities.capabilities.metering.evidence, /duplicate=true/);
 });
 test('every showcased feature has an explicit v01 route and provider contract', () => {
   const ids = V01_FEATURES.map((item) => item.id);

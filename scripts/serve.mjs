@@ -9,6 +9,13 @@ const server = createServer(async (req, res) => {
   try {
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405).end(); return; }
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    if (pathname === '/__merit/health') {
+      const upstream = await fetch('https://merit-prodv01.vercel.app/api/health', { redirect: 'error' });
+      const body = await upstream.arrayBuffer();
+      res.writeHead(upstream.status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+      res.end(req.method === 'HEAD' ? undefined : Buffer.from(body));
+      return;
+    }
     const target = path.resolve(root, `.${pathname === '/' || pathname === '/play/' ? '/index.html' : pathname}`);
     if (!target.startsWith(root) || pathname.split('/').some(x => x.startsWith('.'))) { res.writeHead(404).end(); return; }
     const body = await readFile(target);

@@ -14,6 +14,6 @@ export function publicConfig(env = {}) {
 
 export function verifyHealth(health) {
   return Boolean(health?.ok === true && health.canonical_base_url === V01_GATEWAY
-    && health.backing_services?.meritstore === 'https://merit-storev01.vercel.app'
+    && health.backing_services?.meritsubs === 'https://merit-subsv01.vercel.app/api/v1'
     && health.backing_services?.meritutilsPackages === 'https://merit-utilsv01.vercel.app');
 }

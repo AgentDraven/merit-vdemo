@@ -16,7 +16,7 @@ The build downloads four pinned assets through the v01 gateway and checks their 
 
 The preview mounts the actual merit_ux shell and merit_workbench, offers the complete feature map, and can check its v01 gateway connection. Hosted provider persistence and payment acceptance still require the end-to-end gate in [E2E_VALIDATION.md](merit-vdemo%20docs/IAR/E2E_VALIDATION.md).
 
-The checked-in [capability manifest](cfg/capabilities.json) is the source for what this alpha claims. It marks only the shell and workbench as implemented; identity, journal, community, commerce, referral, and notifications remain planned, and metering is blocked on the provider ingest implementation.
+The checked-in [capability manifest](cfg/capabilities.json) is the source for what this showcase claims. Shell, workbench, subscriber identity/entitlements, and privacy-safe metering have hosted evidence. Journal, AMA, community, rooms, notifications, commerce, referral, and leaderboard remain explicitly marked planned until their authenticated feature fixtures are recorded; planned does not mean the route is absent.
 
 Run `npm run probe:v01` for a read-only status matrix of the v01 gateway, store, subscriber, and utilities hosts. It reports status codes and safe service markers only; it does not authenticate, write data, or send messages.
 

@@ -26,4 +26,12 @@ a { color: var(--merit-accent); }
 .feature-card span { color: var(--merit-text-muted); font-size: .9rem; }
 .feature-card code { color: var(--merit-accent); font-size: .74rem; }
 .developer-card { margin: 1rem 0 2rem; }
+.showcase-nav { display:flex; flex-wrap:wrap; gap:1rem; margin:0 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--merit-border); }
+.showcase-nav a { color:var(--merit-text); text-decoration:none; font-weight:650; }
+.showcase-nav a:hover { color:var(--merit-accent); }
+.plans-panel { margin:1rem 0 2rem; padding:1.4rem; border:1px solid var(--merit-border); border-radius:.9rem; background:linear-gradient(120deg, rgba(52,211,153,.11), rgba(96,165,250,.08)); }
+.plans-panel h2 { margin:.2rem 0 1rem; }
+.plan-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:.8rem; }
+.plan-grid article { display:grid; gap:.35rem; padding:1rem; border-radius:.7rem; background:rgba(8,11,18,.45); }
+.plan-grid span { color:var(--merit-text-muted); line-height:1.45; font-size:.92rem; }
 @media (max-width: 600px) { .merit-ux-main { padding: 1rem; } }

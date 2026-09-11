@@ -4,6 +4,10 @@
 **Consumer:** `merit-vdemo` (vault-projected V01 configuration)  
 **Scope:** full showcase page, local interaction checks, provider health, deployed capability routes, and clean-fork evidence.
 
+## GitHub identity and remote correction
+
+V01 repositories are owned by `AgentDraven`. The old checkout for this repo pointed at `Mr-PI-Bala/merit-vdemo` and used the Mr-PI-Bala commit identity, which explains a `Repository not found` response when the active credential is AgentDraven (or when the repo is not visible to that account). The checkout is now committed as Agent Draven and pushed to [AgentDraven/merit-vdemo](https://github.com/AgentDraven/merit-vdemo). The active GitHub CLI account is AgentDraven, and the V01 provider remotes are all under the same owner.
+
 ## Results
 
 | Area | Evidence | Result |

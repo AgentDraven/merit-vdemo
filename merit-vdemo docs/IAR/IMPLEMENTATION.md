@@ -17,6 +17,7 @@ One forkable showcase lets a builder experience and reuse the supported v01 capa
 - merit-utils owns versioned PAR packages, merit_ux shells, merit_meter ingestion, and merit_referral. Consume packages; do not copy private provider source into the showcase.
 - merit-agent-skills/Hub owns public create, ecosystem selection, compatibility pins, and reproducible fork onboarding.
 - The private vault owns provider credentials, environment projection, deployment account isolation, and release evidence. Its existing v01 HowTo remains the ecosystem gap SSOT; this file owns showcase implementation only.
+- The owner-aligned consumer source is `AgentDraven/merit-vdemo`; the OC companion is `AgentDraven/merit-odemo`.
 
 ## Implementation sequence
 
@@ -46,7 +47,7 @@ One forkable showcase lets a builder experience and reuse the supported v01 capa
 
 ## Current evidence and limitations
 
-The V01 gateway, subscriber, store, and utility hosts now return healthy responses. Store reports Square sandbox enabled and 20 `merit-vdemo` offerings; a sandbox `plus-monthly` checkout returned `paid`. The utility registry is published at `https://merit-utilsv01.vercel.app` and the consumer pins that host. Hosted lifecycle returned successful downgrade and cancel transitions, durable meter replay returned `duplicate=true`, and the clean-fork proof returned `cross_items=0`.
+The V01 gateway, subscriber, store, and utility hosts now return healthy responses. Store reports Square sandbox enabled and 20 `merit-vdemo` offerings; a sandbox `plus-monthly` checkout returned `paid`. The utility registry is published at `https://merit-utilsv01.vercel.app` and the consumer pins that host. Hosted lifecycle returned successful downgrade and cancel transitions, durable meter replay returned `duplicate=true`, the authenticated tenant matrix passed all seven collections, and the clean-fork proof returned `cross_items=0`.
 
 Fresh probe update: on 2026-09-11, direct `https://merit-subsv01.vercel.app/api/v1/health` returned HTTP 200 with Supabase persistence enabled. Protected entitlement access without a subscriber credential returned HTTP 401, as expected. The gateway's old `/api/meritsubs/health` path is not the V01 acceptance route.
 
@@ -60,7 +61,7 @@ Repository portability: `.github/workflows/verify.yml`, `CONTRIBUTING.md`, and `
 
 Remote CI evidence: the first workflow run failed because the repository lacked a lockfile. Added `package-lock.json` and pushed `d480423`; GitHub Actions run `34311567411` completed successfully on that commit. Fork reproducibility now has a passing remote test signal.
 
-Latest evidence: `merit-vdemo` tests pass 10/10 and the build passes after the V01 artifact registry refresh. A repository secret scan found no credential-pattern matches. The source is published in `Mr-PI-Bala/merit-vdemo`; the owner-aligned repository contains the same application source. Hosted provider health, catalog, lifecycle, durable meter persistence, and clean-fork isolation are green.
+Latest evidence: `merit-vdemo` tests pass 10/10 and the build passes after the V01 artifact registry refresh. A repository secret scan found no credential-pattern matches. The source is published in `AgentDraven/merit-vdemo`. Hosted provider health, catalog, lifecycle, authenticated tenant CRUD, durable meter persistence, and clean-fork isolation are green.
 
 The corrected `npm run probe:v01` now exits successfully with `ready=true`: it checks the direct V01 utility registry, confirms both `merit_meter` and `merit_referral`, and reports no gateway pending backends. This is a provider availability gate; it does not replace the authenticated lifecycle and persistence probes below.
 
@@ -83,3 +84,7 @@ Acceptance is complete for the current V01 scope. Record the exact command, revi
 - `npm run probe:v01` is a repeatable read-only provider gate. It checks gateway, store, subs, and utils HTTP status plus safe service/version markers and fails if any required host is unavailable or the gateway identity is inconsistent. The 2026-09-09 run reports gateway/store/utils 200 and subs 500 `FUNCTION_INVOCATION_FAILED`, so the gate correctly fails. It performs no authenticated or mutating operation.
 - The probe also fails when the gateway health declares `new_mesh_pending` backends or the store reports zero offerings. Latest run reports five blockers: subscriber host unavailable, AMA/journal/leaderboard pending, and empty store catalog. This makes HTTP 200 health insufficient for v01 release readiness.
 
+
+## 2026-09-11 acceptance refresh
+
+The older paragraphs above are historical recovery notes. The current acceptance evidence supersedes their earlier pending/500 observations: `npm run e2e` reports `ready=true`; `npm run e2e:hosted` passes 15/15 public and auth-boundary checks; `npm run e2e:authenticated` passes GET -> POST -> GET -> DELETE for journal, questions, contributions, rooms, alerts, push, and members; and `npm run e2e:playwright` passes desktop/mobile browser checks with persisted screenshots. See `merit-vdemo docs/IAR/OVERNIGHT_E2E_REPORT.md` and its `evidence/` directory for the current run artifacts.

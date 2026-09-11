@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-09-11T08:15:35.011Z",
+  "consumer": "merit-vdemo",
+  "subscriber": "e2e-1789114521715",
+  "results": [
+    {
+      "collection": "journal",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "questions",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "contributions",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "rooms",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "alerts",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "push",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    },
+    {
+      "collection": "members",
+      "before": 200,
+      "create": 200,
+      "after": 200,
+      "delete": 200,
+      "itemIdPresent": true,
+      "passed": true
+    }
+  ],
+  "failed": 0
+}

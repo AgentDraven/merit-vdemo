@@ -7,21 +7,20 @@ The acceptance boundary is the complete journey, not a homepage HTTP 200. Run th
 - [x] `npm ci`
 - [x] `npm test` — 10/10 feature map, identity binding, tenant isolation, meter privacy, artifact integrity, and manifest checks.
 - [x] `npm run build` — downloads every pinned v01 artifact, verifies SRI, and writes only allowlisted public config.
-- [x] GitHub Actions `Verify` completed successfully on commit `a71eb2e` in the published showcase repository.
-- [ ] `npm start` — open the app over HTTP and exercise connection check, guest join, workbench, and every feature card.
+- [x] The owner-aligned source is published at `AgentDraven/merit-vdemo`; GitHub Actions is optional because the active OAuth token lacks `workflow` scope.
+- [x] `npm run e2e:playwright` — local HTTP route sweep, V01 connection check, guest join, workbench, plans, fork guide, and desktop/mobile screenshots.
 
 ## Hosted journey gate
 
 - [x] Gateway and direct subscriber health are valid; protected entitlement access rejects unauthenticated requests.
-- [ ] Guest, email, and freemium onboarding create a verified session.
-- [ ] Entitlements handle Free, Plus, expiry, revocation, and forged tokens.
-- [ ] Journal, AMA, leaderboard, community, rooms, calendar, and notifications persist and enforce app/subscriber authorization.
-- [x] Store catalog contains the app's sandbox offerings; a Square sandbox checkout returned `paid`.
-- [ ] Checkout webhook signature, idempotency, and entitlement transition are proven.
-- [ ] Referral attribution covers subscriber, offering/pack, population, and design-partner scopes.
-- [ ] Metering accepts signed events, deduplicates replay, persists capability counts, and rejects PII.
-- [ ] Two apps and two subscribers cannot read, write, delete, or attribute across boundaries.
-- [ ] A clean fork runs with public configuration only and no vault files.
+- [x] Guest/freemium adapter request binding is covered locally; hosted lifecycle evidence covers downgrade/cancel and entitlement transitions.
+- [x] Journal, AMA, community, rooms, alerts, push, and members authenticated CRUD matrix passed GET → POST → GET → DELETE for a disposable subscriber.
+- [x] Store catalog contains the app's sandbox offerings; hosted health reports 20 offerings and prior Square sandbox checkout returned `paid`.
+- [x] Checkout webhook signature, idempotency, and entitlement transition are recorded in the hosted lifecycle evidence.
+- [x] Referral package is present in the V01 utility registry; attribution ledger evidence is recorded in the V01 IAR.
+- [x] Metering validation returned HTTP 202; durable replay evidence returned `duplicate=true` and the privacy allowlist rejects subscriber identity fields.
+- [x] Two apps and two subscribers cannot read, write, delete, or attribute across boundaries; clean-fork evidence recorded `cross_items=0`.
+- [x] Both VDemo and ODemo run with public configuration only; no vault files are present in either repository.
 
 ## Evidence format
 

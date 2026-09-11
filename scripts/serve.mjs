@@ -16,7 +16,8 @@ const server = createServer(async (req, res) => {
       res.end(req.method === 'HEAD' ? undefined : Buffer.from(body));
       return;
     }
-    const target = path.resolve(root, `.${pathname === '/' || pathname === '/play/' ? '/index.html' : pathname}`);
+  const relative = pathname === '/' || pathname === '/play/' ? '/index.html' : (pathname.endsWith('/') ? `${pathname}index.html` : pathname);
+  const target = path.resolve(root, `.${relative}`);
     if (!target.startsWith(root) || pathname.split('/').some(x => x.startsWith('.'))) { res.writeHead(404).end(); return; }
     const body = await readFile(target);
     res.writeHead(200, { 'Content-Type': `${types[path.extname(target)] || 'application/octet-stream'}; charset=utf-8`, 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store' });

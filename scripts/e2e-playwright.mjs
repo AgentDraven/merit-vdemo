@@ -6,7 +6,7 @@ const { chromium } = await import(pathToFileURL('C:/DApps/merit-odemo/node_modul
 const root = process.cwd();
 const evidenceDir = path.join(root, 'merit-vdemo docs', 'IAR', 'evidence');
 const base = process.env.MERIT_VDEMO_BASE_URL || 'http://127.0.0.1:4317';
-const routes = ['/', '/config.json'];
+const routes = ['/', '/portal/', '/play/', '/journal/', '/ama/', '/admin/', '/diag/', '/legal.html', '/terms.html', '/config.json'];
 const failures = [];
 await fs.mkdir(evidenceDir, { recursive: true });
 const browser = await chromium.launch();
@@ -14,6 +14,10 @@ const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
 for (const route of routes) {
   const response = await page.goto(`${base}${route}`, { waitUntil: 'networkidle' });
   if (!response?.ok()) failures.push(`${route}: HTTP ${response?.status() || 'no response'}`);
+  if (route !== '/' && route !== '/config.json') {
+    const label = route.replaceAll('/', '').replace('.html', '') || 'home';
+    await page.screenshot({ path: path.join(evidenceDir, `vdemo-${label}-desktop.png`), fullPage: true });
+  }
 }
 await page.goto(`${base}/`, { waitUntil: 'networkidle' });
 await page.screenshot({ path: path.join(evidenceDir, 'vdemo-desktop.png'), fullPage: true });
@@ -28,5 +32,5 @@ await page.setViewportSize({ width: 390, height: 844 });
 await page.goto(`${base}/`, { waitUntil: 'networkidle' });
 await page.screenshot({ path: path.join(evidenceDir, 'vdemo-mobile.png'), fullPage: true });
 await browser.close();
-console.log(JSON.stringify({ base, screenshots: ['vdemo-desktop.png', 'vdemo-mobile.png'], checks: ['routes', 'workbench', 'plans', 'fork guide', 'gateway connection', 'guest join'], failures }, null, 2));
+console.log(JSON.stringify({ base, screenshots: ['vdemo-desktop.png', 'vdemo-mobile.png', 'vdemo-portal-desktop.png', 'vdemo-journal-desktop.png', 'vdemo-ama-desktop.png', 'vdemo-admin-desktop.png'], checks: ['full route sweep', 'workbench', 'plans', 'fork guide', 'gateway connection', 'guest join'], failures }, null, 2));
 if (failures.length) process.exitCode = 1;

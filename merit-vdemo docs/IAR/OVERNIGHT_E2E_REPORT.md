@@ -15,7 +15,7 @@ V01 repositories are owned by `AgentDraven`. The old checkout for this repo poin
 | Consumer contract | `npm test` | 10/10 passed |
 | Hosted E2E probe | `npm run e2e` | Gateway, subscriber, store, utility homepage, and registry all ready |
 | Hosted API matrix | `npm run e2e:hosted` | 15/15 endpoint and auth-boundary checks passed; JSON evidence is in `merit-vdemo docs/IAR/evidence/hosted-api-matrix.json` |
-| VDemo browser E2E | `npm run e2e:playwright` | Local desktop/mobile screenshots plus workbench, plans, fork guide, gateway connection, and guest join checks passed |
+| VDemo browser E2E | `npm run e2e:playwright` | Local portal/play/journal/AMA/admin/diagnostics/legal route sweep, desktop/mobile screenshots, workbench, plans, fork guide, gateway connection, and guest join checks passed |
 | Authenticated tenant matrix | `npm run e2e:authenticated` | 7/7 tenant collections passed GET → POST → GET → DELETE using a disposable subscriber and server-only gateway key; redacted evidence is in `merit-vdemo docs/IAR/evidence/authenticated-tenant-matrix.json` |
 | V01 artifact build | `npm run verify` | Four pinned artifacts verified; build passed |
 | Provider matrix | `npm run probe:v01` | `ready=true`, no blockers |

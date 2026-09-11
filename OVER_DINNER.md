@@ -4,7 +4,7 @@ This repository is the smallest useful hello-world for a MERIT v01 app. Fork it,
 
 ## Five-minute fork
 
-1. Fork `Mr-PI-Bala/merit-vdemo` and clone your fork.
+1. Fork `AgentDraven/merit-vdemo` and clone your fork.
 2. Copy `.env.example` to `.env.local`.
 3. Set `MERIT_APP_ID` to a new lowercase slug and `MERIT_APP_NAME` to your app name.
 4. Run `npm ci`, then `npm test`.
@@ -27,4 +27,3 @@ Start with the feature map in `app_logic/feature_contract.mjs`. Add the provider
 ## Make the app yours
 
 Replace the default copy in `app_logic/main.mjs`, update `MERIT_APP_NAME`, add your own product requirements, and keep the app slug unique. A good first consumer can resemble a private podcast community, a balance/coaching room, a creator membership, or any other app that benefits from identity, content, commerce, referrals, and measurable usage.
-

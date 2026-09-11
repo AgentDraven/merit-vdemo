@@ -1,0 +1,160 @@
+{
+  "checkedAt": "2026-09-11T08:08:29.772Z",
+  "results": [
+    {
+      "label": "gateway health",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/health",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "ok": true
+    },
+    {
+      "label": "v01 health",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/v1/health",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "ok": true
+    },
+    {
+      "label": "tenant journal auth boundary",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/tenant/journal",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "tenant questions auth boundary",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/tenant/questions",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "tenant contributions auth boundary",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/tenant/contributions",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "tenant rooms auth boundary",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/tenant/rooms",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "tenant alerts auth boundary",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/tenant/alerts",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "room media route",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/room-media/book",
+      "status": 200,
+      "expected": [
+        200,
+        401,
+        405
+      ],
+      "ok": true
+    },
+    {
+      "label": "usage route",
+      "method": "GET",
+      "url": "https://merit-prodv01.vercel.app/api/usage?consumer_id=merit-vdemo&format=json",
+      "status": 200,
+      "expected": [
+        200,
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "subscriber health",
+      "method": "GET",
+      "url": "https://merit-subsv01.vercel.app/api/v1/health",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "ok": true
+    },
+    {
+      "label": "subscriber entitlement auth boundary",
+      "method": "GET",
+      "url": "https://merit-subsv01.vercel.app/api/v1/entitlements",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "ok": true
+    },
+    {
+      "label": "store health",
+      "method": "GET",
+      "url": "https://merit-storev01.vercel.app/api/v1/health",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "ok": true
+    },
+    {
+      "label": "store tenant offerings",
+      "method": "GET",
+      "url": "https://merit-storev01.vercel.app/api/v1/tenants/merit-vdemo/offerings",
+      "status": 200,
+      "expected": [
+        200,
+        404
+      ],
+      "ok": true
+    },
+    {
+      "label": "utility registry",
+      "method": "GET",
+      "url": "https://merit-utilsv01.vercel.app/registry.json",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "ok": true
+    },
+    {
+      "label": "utility meter validation",
+      "method": "POST",
+      "url": "https://merit-utilsv01.vercel.app/api/events/ingest",
+      "status": 202,
+      "expected": [
+        202
+      ],
+      "ok": true
+    }
+  ],
+  "failed": 0
+}

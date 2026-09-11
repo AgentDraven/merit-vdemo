@@ -10,7 +10,7 @@ import { V01_FEATURES, featureById } from '../app_logic/feature_contract.mjs';
 
 test('fork identity changes all generated app routes without exposing unrelated env', () => {
   const config = publicConfig({ MERIT_APP_ID: 'second-app', MERIT_APP_NAME: 'Second app', SUPABASE_SERVICE_ROLE_KEY: 'secret-sentinel', MERIT_TENANT_GATEWAY_KEY: 'another-secret' });
-  assert.equal(config.registerUrl, 'https://merit-prodv01.vercel.app/store/second-app/register');
+  assert.equal(config.registerUrl, 'https://merit-storev01.vercel.app/second-app/register');
   assert.equal(JSON.stringify(config).includes('secret'), false);
   assert.equal(JSON.stringify(config).includes('merit-vdemo'), false);
 });

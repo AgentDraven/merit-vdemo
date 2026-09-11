@@ -7,7 +7,7 @@ export function publicConfig(env = {}) {
   if (!name.trim() || name.length > 80 || /[<>\x00-\x1f]/.test(name)) throw new Error('MERIT_APP_NAME must be plain text, up to 80 characters');
   return Object.freeze({
     appId: id, name, ecosystem: 'v01', gateway: V01_GATEWAY,
-    registerUrl: `${V01_GATEWAY}/store/${id}/register`,
+    registerUrl: `https://merit-storev01.vercel.app/${id}/register`,
     healthUrl: `${V01_GATEWAY}/api/health`,
   });
 }

@@ -14,6 +14,8 @@ V01 repositories are owned by `AgentDraven`. The old checkout for this repo poin
 |---|---|---|
 | Consumer contract | `npm test` | 10/10 passed |
 | Hosted E2E probe | `npm run e2e` | Gateway, subscriber, store, utility homepage, and registry all ready |
+| Hosted API matrix | `npm run e2e:hosted` | 15/15 endpoint and auth-boundary checks passed; JSON evidence is in `merit-vdemo docs/IAR/evidence/hosted-api-matrix.json` |
+| VDemo browser E2E | `npm run e2e:playwright` | Local desktop/mobile screenshots plus workbench, plans, fork guide, gateway connection, and guest join checks passed |
 | V01 artifact build | `npm run verify` | Four pinned artifacts verified; build passed |
 | Provider matrix | `npm run probe:v01` | `ready=true`, no blockers |
 | Gateway | `https://merit-prodv01.vercel.app/api/health` | HTTP 200 |
@@ -52,3 +54,5 @@ The run captured full-page screenshots of:
 - the OC showcase Portal at local `/portal/`, including Workbench, Journal, AMA, and MeritSubs route cards.
 
 The screenshots were visually inspected for page shell, responsive card layout, route labels, and absence of secret values.
+
+The VDemo registration CTA now targets the V01 store host directly (`https://merit-storev01.vercel.app/<app>/register`), which is the deployed tenant registration surface. The previous gateway `/store/<app>/register` alias returned 404 and was removed from the consumer claim surface.

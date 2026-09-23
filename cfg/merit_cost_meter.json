@@ -1,0 +1,25 @@
+{
+  "schema": "merit.consumer-cost-config.v1",
+  "event_schema": "merit.transaction.cost.v1",
+  "consumer_id": "merit-vdemo",
+  "meter_owner": "merit-prod",
+  "mode": "delegated",
+  "model_version": "2026-09-13.2",
+  "ingest_url_env": "DIRT_METER_INGEST_URL",
+  "ingest_secret_env": "DIRT_METER_INGEST_SECRET",
+  "required_fields": [
+    "consumer_id",
+    "provider",
+    "operation",
+    "status",
+    "started_at",
+    "duration_ms",
+    "quantity",
+    "currency",
+    "price_model_version",
+    "estimated_cost",
+    "cost_basis"
+  ],
+  "zero_cost_model_allowed": true,
+  "status": "configured-not-yet-hosted-proven"
+}

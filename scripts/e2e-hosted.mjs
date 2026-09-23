@@ -1,4 +1,5 @@
 const base = 'https://merit-prodv01.vercel.app';
+const priceModelVersion = '2026-09-13.2';
 const checks = [
   ['gateway health', 'GET', `${base}/api/health`, [200]],
   ['v01 health', 'GET', `${base}/api/v1/health`, [200]],
@@ -22,7 +23,7 @@ for (const [label, method, url, expected] of checks) {
   const init = { method, redirect: 'error', signal: AbortSignal.timeout(20000), headers: { Accept: 'application/json' } };
   if (method === 'POST') {
     init.headers['Content-Type'] = 'application/json';
-    init.body = JSON.stringify({ schema: 'merit.telemetry.event.v1', event_type: 'e2e.probe', occurred_at: new Date().toISOString(), consumer_id: 'merit-vdemo', capability: 'e2e', quantity: 1 });
+    init.body = JSON.stringify({ schema: 'merit.transaction.cost.v1', eventId: `e2e-${Date.now()}`, consumerId: 'merit-vdemo', provider: 'merit-gateway', operation: 'e2e', status: 'ok', occurredAt: new Date().toISOString(), durationMs: 1, quantity: 1, currency: 'USD', unitCostUsd: 0, estimatedCostUsd: 0, priceModelVersion, costBasis: 'e2e validation placeholder' });
   }
   try {
     const response = await fetch(url, init);

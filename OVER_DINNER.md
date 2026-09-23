@@ -16,6 +16,8 @@ This repository is the smallest useful hello-world for a MERIT v01 app. Fork it,
 
 Your fork owns branding, app logic, public configuration, consent copy, and the user journey. The v01 platform owns gateway contracts, subscriber identity, store/payment rails, package delivery, metering, and provider persistence.
 
+Identity baseline: every tier requires a handle; free handles may remain local until upgrade, while freemium and paid identity, recovery, and KYC follow the platform contract in [MERIT identity requirements](https://github.com/AgentDraven/merit-prod/blob/main/docs/IAR/IDENTITY_RECOVERY_KYC_REQUIREMENTS.md).
+
 ## What stays server-side
 
 Never put gateway keys, Supabase service keys, Square tokens, webhook secrets, JWT secrets, or provider credentials in this repository, `dist/`, browser code, or a public fork. Configure them on the owning v01 provider project through the vault/operator workflow.

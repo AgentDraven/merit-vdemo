@@ -11,7 +11,7 @@ export const V01_FEATURES = Object.freeze([
   { id: 'notifications', route: '/api/tenant/alerts', methods: ['GET', 'POST', 'DELETE'], provider: 'merit-prodv01' },
   { id: 'store', route: '/api/meritstore/*', methods: ['GET', 'POST'], provider: 'merit-storev01' },
   { id: 'referral', route: 'merit_referral', methods: ['SDK'], provider: 'merit-utilsv01' },
-  { id: 'metering', route: '/api/events/ingest', methods: ['POST'], provider: 'merit-utilsv01' },
+  { id: 'metering', route: '/api/events/ingest', methods: ['POST'], provider: 'merit-utilsv01', event_schema: 'merit.transaction.cost.v1', zero_cost_model_allowed: true },
   { id: 'analytics', route: '/api/events/ingest', methods: ['POST', 'GET'], provider: 'merit-utilsv01' },
 ]);
 
